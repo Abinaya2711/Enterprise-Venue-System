@@ -14,6 +14,11 @@ function App() {
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/people" element={<People />} />
         <Route path="/hall" element={<Hall />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/otp" element={<OTP />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </>
   )
