@@ -7,7 +7,7 @@ const CalendarPage = () => {
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
   const [selectedDate, setSelectedDate] = useState(null);
-  const [bookings, setBookings] = useState({}); // Stores bookings for each date
+  const [bookings, setBookings] = useState({}); 
 
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstDayOfMonth = new Date(year, month, 1).getDay();

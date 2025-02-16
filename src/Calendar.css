@@ -51,23 +51,23 @@
   
   .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(7, minmax(40px, 1fr)); /* Make calendar responsive */
+    grid-template-columns: repeat(7, minmax(40px, 1fr)); 
     gap: 5px;
   }
   
   @media (max-width: 600px) {
     .calendar-grid {
-      grid-template-columns: repeat(7, minmax(30px, 1fr)); /* Reduce size for small screens */
+      grid-template-columns: repeat(7, minmax(30px, 1fr)); 
     }
   
     .day, .day-header {
-      font-size: 12px; /* Reduce text size on small screens */
+      font-size: 12px; 
       padding: 5px;
     }
   }
   .empty {
-    border: none !important; /* Remove black borders from empty boxes */
-    background: transparent !important; /* Make them invisible */
+    border: none !important; 
+    background: transparent !important; 
   }   
   
   
