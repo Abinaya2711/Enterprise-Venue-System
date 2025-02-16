@@ -5,6 +5,7 @@ import { useState } from 'react'
 import './HomePage.css'
 import AddPeople from './AddPeople'
 import Content from './Content'
+import { useNavigate } from 'react-router-dom'
 
 const People = () => {
   
@@ -12,6 +13,7 @@ const People = () => {
       const[newItem,setNewItem]=useState('')
       const[email,setEmail]=useState('')
       const[role,setRole]=useState('')
+      const navigate=useNavigate()
       
       useEffect(()=>{
         JSON.parse(localStorage.getItem("Peopleadd"))||[]

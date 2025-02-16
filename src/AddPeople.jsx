@@ -25,17 +25,17 @@ const AddPeople = ({search,setSearch,handleSubmit,newItem,setNewItem,email,setEm
                 <form className='peopleaddform' onSubmit={handleSubmit}>
                     <label htmlFor='addPeople'>Name</label>
                     <input type='text' placeholder='Enter the Name' id='addPeople' value={newItem}
-                        onChange={(e) => setNewItem(e.target.value)} /><br />
+                        onChange={(e) => setNewItem(e.target.value)} required/><br />
 
                     <label htmlFor='emailid'>Email</label>
                     <input type='email' placeholder='Enter the email' id="emailid" value={email}
-                        onChange={(e) => setEmail(e.target.value)} /><br />
+                        onChange={(e) => setEmail(e.target.value)} required/><br />
 
                     <label htmlFor='role'>Role</label>
                     <input type='text' placeholder='Enter the role' id="role" value={role}
-                        onChange={(e) => setRole(e.target.value)} /><br />
+                        onChange={(e) => setRole(e.target.value)} required/><br />
 
-                    <button type='submit' >Submit</button>
+                    <button type='submit'>Submit</button>
                 </form>
             </div>
         </div>
