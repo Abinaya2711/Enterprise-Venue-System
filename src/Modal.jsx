@@ -40,12 +40,47 @@ const Modal = ({ selectedDate, closeModal, bookings, handleBook }) => {
             ))}
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <label>Name: <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required /></label>
-            <label>Year: <input type="text" value={formData.year} onChange={(e) => setFormData({ ...formData, year: e.target.value })} required /></label>
-            <label>Section: <input type="text" value={formData.section} onChange={(e) => setFormData({ ...formData, section: e.target.value })} required /></label>
-            <button type="submit" className="book-btn">Book</button>
-          </form>
+          <form onSubmit={handleSubmit} className="booking-form">
+          <label>Name:</label>
+          <input 
+            type="text" 
+            value={formData.name} 
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
+            required 
+          />
+        
+        <label>Year:  
+            <select 
+              value={formData.year} 
+              onChange={(e) => setFormData({ ...formData, year: e.target.value })}
+              required
+            >
+              <option value="" disabled hidden>Select Year</option>
+              <option value="I">I</option>
+              <option value="II">II</option>
+              <option value="III">III</option>
+              <option value="IV">IV</option>
+            </select>
+          </label>
+
+          <label>Section:  
+            <select 
+              value={formData.section} 
+              onChange={(e) => setFormData({ ...formData, section: e.target.value })}
+              required
+            >
+              <option value="" disabled hidden>Select Section</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+            </select>
+          </label>
+
+        
+          <button type="submit" className="book-btn">Book</button>
+        </form>
+        
+         
         )}
       </div>
     </div>
