@@ -4,7 +4,11 @@ import Admin from './Admin';
 import HomePage from './HomePage';
 import People from './People';
 import Hall from './Hall';
-import Login from './login';
+import Login from './Login';
+import Home from './Home';
+import ForgotPassword from './ForgotPassword';
+import OTP from './OTP';
+import ResetPassword from './ResetPassword';
 
 function App() {
   return (
