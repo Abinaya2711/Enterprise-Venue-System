@@ -1,0 +1,66 @@
+.container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    margin: 50px auto; /* Centers the div */
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.forgot-password-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
+
+.forgot-password-link span {
+    color: #007bff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.forgot-password-link span:hover {
+    color: #0056b3;
+}
