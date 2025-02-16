@@ -1,0 +1,72 @@
+/* Main Content Container */
+main {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Empty List Message */
+main p {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* List Container */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual List Items */
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: 0.3s ease-in-out;
+}
+
+.item:hover {
+    background: #e9ecef;
+}
+
+/* Labels for Name, Email, Role */
+.item label {
+    flex: 1;
+    padding: 5px;
+    font-size: 1rem;
+    color: #333;
+    text-align: left;
+}
+
+/* Trash Icon (Delete Button) */
+.item svg {
+    color: #dc3545;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.2rem;
+}
+
+.item svg:hover {
+    color: #a71d2a;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

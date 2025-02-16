@@ -61,7 +61,7 @@ const HomePage = () => {
         <div className="logo"><i className="fas fa-crown"></i> Admin Dashbord</div>
             <nav>
                 <ul className="nav-links">
-                    <li><Link to='/homePage' >Home</Link></li>
+                    <li><Link to='/homePage' style={{color:'yellow'}}>Home</Link></li>
                     <li><Link to='/people' >People</Link></li>
                     <li><Link to='/hall' >Hall</Link></li>
                 </ul>
