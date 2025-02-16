@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import HomePage from './HomePage';
 import './Admin.css'
 
 const Admin = () => {
@@ -10,7 +9,7 @@ const Admin = () => {
         navigate('/homepage')
     }
   return (
-    <div>
+    <div className='wrapper'>
       <div className="container">
         <h2>Admin Login</h2>
         <form  className="login-form" onSubmit={handleChange}>
