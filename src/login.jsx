@@ -26,6 +26,6 @@ const login = () => {
       <p onClick={() => navigate("/auth/forgot-password")} className="forgot-link">Forgot Password?</p>
     </div>
   );
-}git add src/login.jsx
+}
 
 export default login
