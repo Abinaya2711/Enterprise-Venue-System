@@ -8,7 +8,7 @@ function OTP() {
 
   const handleVerifyOTP = () => {
     if (otp.length === 6) {
-      navigate("/reset-password");
+      navigate("/auth/reset-password");
     } else {
       alert("Enter a valid 6-digit OTP.");
     }

@@ -1,290 +1,287 @@
 /* Global Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-  }
-  
-  .logo {
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo i {
-    margin-right: 10px;
-  }
-  
-  .nav-links {
-    list-style-type: none;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-left: 20px;
-  }
-  
-  .nav-links a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-  }
-  
-  .hamburger .bar {
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background-color: #fff;
-  }
- 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .calendar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin: 20px;
-  }
-  
-  #calendar {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    max-width: 600px;
-    box-sizing: border-box;
-    padding: 20px;
-  }
-  
-  .navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  #prevMonth, #nextMonth {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  #prevMonth:hover, #nextMonth:hover {
-    background-color: #0056b3;
-  }
-  
-  #monthYear {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  /* Calendar Table */
-  #calendarTable {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  #calendarTable th,
-  #calendarTable td {
-    text-align: center;
-    padding: 10px;
-    width: 14.28%;
-    height: 40px;
-  }
-  
-  #calendarTable th {
-    background-color: #f1f1f1;
-    font-weight: bold;
-  }
-  
-  .day {
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  
-  .day:hover {
-    background-color: #e0e0e0;
-  }
-  
-  .day.disabled {
-    color: #ccc;
-    pointer-events: none;
-  }
-  
-  .day.selected {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  /* Footer Section */
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    font-size: 14px;
-  }
-  
-  .dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  footer span {
-    margin-right: 10px;
-  }
-  
-  /* Download Button */
-  #downloadExcelBtn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
-    margin-top: 20px;
-  }
-  
-  #downloadExcelBtn:hover {
-    background-color: #218838;
-  }
-  
-  /* Media Queries for Responsiveness */
-  
-  /* Tablet or larger */
-  @media screen and (max-width: 768px) {
-    .calendar-container {
-      margin: 10px;
-    }
-  
-    #calendar {
-      padding: 15px;
-    }
-  
-    #monthYear {
-      font-size: 16px;
-    }
-  
-    #calendarTable th,
-    #calendarTable td {
-      padding: 8px;
-    }
-  
-    #downloadExcelBtn {
-      padding: 8px 16px;
-      font-size: 14px;
-    }
-  }
-  
-  /* Mobile */
-  @media screen and (max-width: 480px) {
-    .calendar-container {
-      margin: 5px;
-    }
-  
-    #calendar {
-      padding: 10px;
-      width: 100%;
-    }
-  
-    #monthYear {
-      font-size: 14px;
-    }
-  
-    #calendarTable th,
-    #calendarTable td {
-      padding: 6px;
-      font-size: 12px;
-    }
-  
-    #downloadExcelBtn {
-      padding: 8px 16px;
-      font-size: 14px;
-    }
-  }
-  @media screen and (max-width: 768px) {
-    header {
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.logo {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.logo i {
+  margin-right: 10px;
+}
+
+.nav-links {
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #fff;
+}
+
+/* Calendar Container */
+.calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  text-align: center; /* Centering content */
+}
+
+#calendar {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 60%;
+  max-width: 600px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* Navigation Buttons - Made Smaller */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#prevMonth, #nextMonth {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 6px;  /* Reduced padding */
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 12px;
+  min-width: 40px; /* Ensures buttons are narrower */
+  max-width: 50px; /* Prevents them from stretching */
+  text-align: center;
+}
+
+
+
+#prevMonth:hover, #nextMonth:hover {
+  background-color: #0056b3;
+}
+
+/* Calendar Month and Year */
+#monthYear {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Calendar Table */
+#calendarTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#calendarTable th,
+#calendarTable td {
+  text-align: center;
+  padding: 10px;
+  width: 14.28%;
+  height: 40px;
+}
+
+#calendarTable th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.day {
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.day:hover {
+  background-color: #e0e0e0;
+}
+
+.day.disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
+.day.selected {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Footer Section */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+footer span {
+  margin-right: 10px;
+}
+
+/* Download Button - Centered */
+#downloadExcelBtn {
+  display: block; /* Ensures block-level centering */
+  margin: 20px auto; /* Centers button horizontally */
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  width: auto; /* Prevents full width */
+}
+
+#downloadExcelBtn:hover {
+  background-color: #218838;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet or larger */
+@media screen and (max-width: 768px) {
+  header {
       flex-direction: column;
       align-items: flex-start;
-    }
-  
-    .nav-links {
+  }
+
+  .nav-links {
       flex-direction: column;
       display: none;
-    }
-  
-    .hamburger {
-      display: flex;
-    }
-  
-    .hamburger.active + .nav-links {
-      display: flex;
-    }
-  
-    .calendar-container {
-      padding: 10px;
-    }
-  
-    #calendarTable {
-      font-size: 14px;
-    }
-  
-    button {
-      font-size: 14px;
-      padding: 8px;
-    }
   }
-  
-  @media screen and (max-width: 480px) {
-    header {
+
+  .hamburger {
+      display: flex;
+  }
+
+  .hamburger.active + .nav-links {
+      display: flex;
+  }
+
+  .calendar-container {
       padding: 10px;
-    }
-  
-    .logo {
+  }
+
+  #calendar {
+      padding: 15px;
+  }
+
+  #monthYear {
+      font-size: 16px;
+  }
+
+  #calendarTable th,
+  #calendarTable td {
+      padding: 8px;
+  }
+
+  #downloadExcelBtn {
+      padding: 8px 16px;
+      font-size: 14px;
+  }
+
+  /* Even Smaller Navigation Buttons */
+  #prevMonth, #nextMonth {
+      padding: 3px 7px;
+      font-size: 10px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  header {
+      padding: 10px;
+  }
+
+  .logo {
       font-size: 18px;
-    }
-  
-    .navigation {
+  }
+
+  .navigation {
       flex-direction: column;
       align-items: center;
-    }
-  
-    #calendarTable {
-      font-size: 12px;
-    }
-  
-    button {
-      padding: 8px;
-      font-size: 12px;
-    }
   }
-  
+
+  .calendar-container {
+      margin: 5px;
+  }
+
+  #calendar {
+      padding: 10px;
+      width: 100%;
+  }
+
+  #monthYear {
+      font-size: 14px;
+  }
+
+  #calendarTable th,
+  #calendarTable td {
+      padding: 6px;
+      font-size: 12px;
+  }
+
+  #downloadExcelBtn {
+      padding: 6px 12px;
+      font-size: 12px;
+  }
+
+  /* Smallest Navigation Buttons */
+  #prevMonth, #nextMonth {
+      padding: 2px 5px;
+      font-size: 10px;
+  }
+}

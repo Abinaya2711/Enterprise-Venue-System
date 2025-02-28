@@ -9,7 +9,7 @@ function ResetPassword() {
 
   const handleReset = () => {
     if (newPassword === confirmPassword && newPassword) {
-      navigate("/home");
+      navigate("/auth/home");
     } else {
       alert("Passwords do not match!");
     }

@@ -8,7 +8,7 @@ function ForgotPassword() {
 
   const handleSendOTP = () => {
     if (email) {
-      navigate("/otp");
+      navigate("/auth/otp");
     } else {
       alert("Please enter your registered email.");
     }
@@ -30,4 +30,3 @@ export default ForgotPassword;
 
 
 
-p
