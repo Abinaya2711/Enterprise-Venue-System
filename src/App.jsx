@@ -5,7 +5,10 @@ import HomePage from './HomePage'
 import People from './People'
 import Hall from './Hall'
 import Facultylogin from './Facultylogin'
-
+import Login from './Login'
+import ForgotPassword from './ForgotPassword'
+import Otp from './Otp'
+import NewPassword from './NewPassword'
 
 function App() {
   return (
@@ -15,7 +18,11 @@ function App() {
         <Route path="/homepage" element={<HomePage />} />
         <Route path="/people" element={<People />} />
         <Route path="/hall" element={<Hall />} />
-        <Route path="/" element={<Facultylogin />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/facultylogin" element={<Facultylogin />} />
+        <Route path="/otp" element={<Otp />} />
+        <Route path="/newpassword" element={<NewPassword />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
       </Routes>
     </>
   )
