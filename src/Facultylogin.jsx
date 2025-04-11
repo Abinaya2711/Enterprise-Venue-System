@@ -6,7 +6,7 @@ const Facultylogin = () => {
     const navigate=useNavigate()
     const handleChange=(event)=>{
         event.preventDefault();
-        navigate('/calendar')
+        navigate('/seminar-hall')
     }
     
   return (

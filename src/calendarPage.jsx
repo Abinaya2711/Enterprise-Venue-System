@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import "./Calendar.css";
 
-const CalendarPage = () => {
+const CalendarPage = ({ hallId }) => {
   const today = new Date();
   const [month, setMonth] = useState(today.getMonth());
   const [year, setYear] = useState(today.getFullYear());
   const [selectedDate, setSelectedDate] = useState(null);
-  const [bookings, setBookings] = useState({}); 
+  const [bookings, setBookings] = useState({});
 
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstDayOfMonth = new Date(year, month, 1).getDay();
@@ -35,20 +35,32 @@ const CalendarPage = () => {
     if (month === 11) setYear((prev) => prev + 1);
   };
 
-  const isDateFullyBooked = (dateKey) => bookings[dateKey] && bookings[dateKey].size === 7;
+  const isDateFullyBooked = (dateKey) =>
+    bookings[dateKey] && bookings[dateKey].size === 7;
+
+  const formattedHallName = hallId
+    ? hallId.replace(/-/g, " ").toUpperCase()
+    : "CALENDAR";
 
   return (
     <div className="calendar-container">
+      <h2 className="hall-heading">{formattedHallName} BOOKING</h2>
+
       <div className="calendar">
         <div className="calendar-header">
           <button onClick={prevMonth}>&lt;</button>
-          <h2>{new Date(year, month).toLocaleString("default", { month: "long" })} {year}</h2>
+          <h2>
+            {new Date(year, month).toLocaleString("default", { month: "long" })}{" "}
+            {year}
+          </h2>
           <button onClick={nextMonth}>&gt;</button>
         </div>
 
         <div className="calendar-grid">
           {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-            <div key={day} className="day-header">{day}</div>
+            <div key={day} className="day-header">
+              {day}
+            </div>
           ))}
 
           {Array.from({ length: firstDayOfMonth }).map((_, i) => (
@@ -58,12 +70,17 @@ const CalendarPage = () => {
           {Array.from({ length: daysInMonth }, (_, i) => {
             const day = i + 1;
             const dateKey = `${day}-${month}-${year}`;
-            const isToday = today.getDate() === day && today.getMonth() === month && today.getFullYear() === year;
+            const isToday =
+              today.getDate() === day &&
+              today.getMonth() === month &&
+              today.getFullYear() === year;
 
             return (
               <div
                 key={day}
-                className={`day ${isToday ? "today" : ""} ${isDateFullyBooked(dateKey) ? "fully-booked" : ""}`}
+                className={`day ${isToday ? "today" : ""} ${
+                  isDateFullyBooked(dateKey) ? "fully-booked" : ""
+                }`}
                 onClick={() => handleDateClick(day)}
               >
                 {day}
