@@ -7,7 +7,7 @@ const Login = () => {
 
     const handleChange = (event) => {
         event.preventDefault();
-        navigate('/calendar');
+        navigate('/Calendar');
     };
 
     const handleForgotPassword = () => {
