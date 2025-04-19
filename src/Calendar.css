@@ -1,12 +1,15 @@
 .calendar-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     padding: 20px;
   }
   
   .calendar {
     text-align: center;
   }
+  
+
   
   .calendar-header {
     font-size: 58px;
