@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Home from "./Home";
 import ForgotPassword from "./ForgotPassword";
-import OTP from "./OTP";
+import OTP from "./Otp";
 import ResetPassword from "./ResetPassword";
 
 function App1() {
