@@ -7,7 +7,6 @@ import Hall from './Hall';
 import Facultylogin from './Facultylogin';
 import Login from './Login';
 import ForgotPassword from './ForgotPassword';
-import Otp from './Otp';
 import NewPassword from './NewPassword';
 import CalendarApp from './calendarApp'; 
 import Content from './Content';
