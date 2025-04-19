@@ -98,7 +98,7 @@ app.post('/login',(req,res)=>{
 
 
 app.post('/forgotpassword',(req,res)=>{
-    const{email}=req.body
+    const{email}=req.body;
     const sql=`SELECT * FROM people WHERE email=?`
     db.query(sql,[email],async(err,result)=>{
         if(err){

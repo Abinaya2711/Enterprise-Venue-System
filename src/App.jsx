@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Admin from './Admin';
 import HomePage from './HomePage';
 import People from './People';
@@ -10,6 +10,7 @@ import ForgotPassword from './ForgotPassword';
 import NewPassword from './NewPassword';
 import CalendarApp from './calendarApp'; 
 import Content from './Content';
+
 
 function App() {
   return (

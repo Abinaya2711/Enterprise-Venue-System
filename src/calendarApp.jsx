@@ -4,7 +4,7 @@ import CalendarPage from "./calendarPage";
 import "./App.css";
 
 const CalendarApp = () => {
-  const { hallId } = useParams();
+  const { id } = useParams(); // gets 'id' from the URL, e.g., /calendar/123
 
   return (
     <div className="app-container">
@@ -14,7 +14,7 @@ const CalendarApp = () => {
         <Link to="/hall-01" className="nav-link">Hall 01</Link>
       </nav>
 
-      <CalendarPage hallId={hallId} />
+      <CalendarPage hallId={id} />
     </div>
   );
 };
