@@ -9,7 +9,8 @@ import Login from './Login';
 import ForgotPassword from './ForgotPassword';
 import Otp from './Otp';
 import NewPassword from './NewPassword';
-import CalendarApp from './CalendarApp'; // <-- import this
+import CalendarApp from './calendarApp'; 
+import Content from './Content';
 
 function App() {
   return (
@@ -20,11 +21,9 @@ function App() {
       <Route path="/people" element={<People />} />
       <Route path="/hall" element={<Hall />} />
       <Route path="/facultylogin" element={<Facultylogin />} />
-      <Route path="/otp" element={<Otp />} />
-      <Route path="/newpassword" element={<NewPassword />} />
+      <Route path="/newpassword/:token" element={<NewPassword />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />
-
-      {/* Calendar routes inside main App */}
+      <Route path='/content' element={<Content/>}/>
       <Route path="/:hallId" element={<CalendarApp />} />
     </Routes>
   );

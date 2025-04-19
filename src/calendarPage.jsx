@@ -41,7 +41,6 @@ const CalendarPage = ({ hallId }) => {
   const formattedHallName = hallId
     ? hallId.replace(/-/g, " ").toUpperCase()
     : "CALENDAR";
-
   return (
     <div className="calendar-container">
       <h2 className="hall-heading">{formattedHallName} BOOKING</h2>

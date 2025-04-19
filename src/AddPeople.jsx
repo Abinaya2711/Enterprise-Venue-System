@@ -13,9 +13,20 @@ const AddPeople = ({search,setSearch,handleSubmit,newItem,setNewItem,email,setEm
     
   return (
     <div>
-        <form className='searchForm' onSubmit={(e)=>e.preventDefault()}>
-            <input type='text' autoFocus placeholder='searchItem' id='search' role='searchbox' value={search} onChange={(e)=>setSearch(e.target.value)}/>
-            <button onClick={handleForm}>+</button>
+        <form className='searchForm' onSubmit={(e) => e.preventDefault()}>
+                <input
+                    type='text'
+                    autoFocus
+                    placeholder='searchItem'
+                    id='search'
+                    role='searchbox'
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className='iptype'
+                />
+                <button onClick={handleForm} className='addbtn'>
+                    +
+                </button>
         </form>
         {show &&(
         <div className="modal-overlay">
@@ -35,7 +46,7 @@ const AddPeople = ({search,setSearch,handleSubmit,newItem,setNewItem,email,setEm
                     <input type='text' placeholder='Enter the role' id="role" value={role}
                         onChange={(e) => setRole(e.target.value)} /><br />
 
-                    <button type='submit' >Submit</button>
+                    <button type='submit' className='subbtn' >Submit</button>
                 </form>
             </div>
         </div>

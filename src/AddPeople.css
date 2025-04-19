@@ -1,4 +1,4 @@
-/* ======= Reset Styles ======= */
+/* Reset margin, padding, and box-sizing */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,24 +6,27 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* ======= Search Form ======= */
+/* Flexbox layout for the search form */
 .searchForm {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
+    display: flex;                
+    justify-content: center;     
+    align-items: center;          
+    gap: 10px;                  
+    margin: 20px 0;               
 }
 
-.searchForm input {
+/* Style the input */
+.iptype {
     padding: 10px;
-    width: 250px;
+    width: 250px;                 /* Width of the input */
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
 }
 
-.searchForm button {
+/* Style the add button */
+.addbtn {
     padding: 10px 15px;
-    margin-left: 10px;
     background-color: #28a745;
     color: white;
     border: none;
@@ -33,11 +36,27 @@
     transition: background 0.3s ease-in-out;
 }
 
-.searchForm button:hover {
+/* Button hover effect */
+.addbtn:hover {
     background-color: #218838;
 }
 
-/* ======= Modal Overlay ======= */
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .searchForm {
+        flex-direction: row;         /* Ensures they stay in a row even on small screens */
+        gap: 5px;                    /* Adjust gap for small screens */
+    }
+
+    .iptype {
+        width: 200px;                /* Adjust input width for small screens */
+    }
+
+    .addbtn {
+        padding: 10px;               /* Reduce button size for smaller screens */
+    }
+}
+
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -51,7 +70,6 @@
     z-index: 1000;
 }
 
-/* ======= Modal Box ======= */
 .modal-content {
     background: white;
     padding: 25px;
@@ -63,7 +81,6 @@
     animation: fadeIn 0.3s ease-in-out;
 }
 
-/* ======= Close Button (X) ======= */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -79,7 +96,6 @@
     color: red;
 }
 
-/* ======= Form Input Styles ======= */
 .peopleaddform label {
     display: block;
     margin-top: 10px;
@@ -97,8 +113,7 @@
     font-size: 1rem;
 }
 
-/* ======= Submit Button ======= */
-.peopleaddform button {
+.subbtn {
     width: 100%;
     padding: 12px;
     margin-top: 15px;
@@ -111,11 +126,11 @@
     transition: background 0.3s ease-in-out;
 }
 
-.peopleaddform button:hover {
+.subbtn:hover {
     background-color: #0056b3;
 }
 
-/* ======= Fade In Animation ======= */
+/* Modal animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -127,13 +142,10 @@
     }
 }
 
-/* ======= Responsive Design ======= */
+/* Additional media query for modal content */
 @media (max-width: 500px) {
     .modal-content {
         width: 90%;
     }
-
-    .searchForm input {
-        width: 200px;
-    }
 }
+
