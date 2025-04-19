@@ -1,42 +1,49 @@
-import React from 'react'
-import './AddPeople.css'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import './addpeople.css';
 
-const AddHall = ({search,setSearch,handleSubmit,newItem,setNewItem,hallno,setHallNo}) => {
-    const [show,setShow]=useState(false)
-        const handleForm=()=>{
-            setShow(true)
-        }
-        const handleClose=()=>{
-            setShow(false)
-        }
+const AddHall = ({ newItem, setNewItem, handleSubmit, setShowModal, halls }) => {
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    setNewItem('');
+    setError('');
+  }, []);
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    const isDuplicate = halls.some(
+      (hall) => hall.item.trim().toLowerCase() === newItem.trim().toLowerCase()
+    );
+    if (isDuplicate) {
+      setError('Hall name already exists!');
+      return;
+    }
+  
+    setError('');
+    handleSubmit(); // ✅ Make sure this actually triggers the POST request
+  };
+  
   return (
-    <div>
-        <form className='searchForm' onSubmit={(e)=>e.preventDefault()}>
-            <input type='text' autoFocus placeholder='searchItem' id='search' role='searchbox' value={search} onChange={(e)=>setSearch(e.target.value)}/>
-            <button onClick={handleForm}>+</button>
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <button className="close-btn" onClick={() => setShowModal(false)}>&times;</button>
+        <form className="peopleaddform" onSubmit={handleFormSubmit}>
+          <label htmlFor="hallname">Enter Hall Name:</label>
+          <input
+            id="hallname"
+            type="text"
+            required
+            value={newItem}
+            onChange={(e) => setNewItem(e.target.value)}
+          />
+          {error && <p className="error">{error}</p>}
+          <button type="submit">Add Hall</button>
         </form>
-        {show &&(
-        <div className="modal-overlay">
-            <div className="modal-content">
-                <button className="close-btn" onClick={handleClose}>&times;</button>
-                <h2>Add Hall</h2>
-                <form className='peopleaddform' onSubmit={handleSubmit}>
-                    <label htmlFor='addPeople'>Name</label>
-                    <input type='text' placeholder='Enter the Name' id='addPeople' value={newItem}
-                        onChange={(e) => setNewItem(e.target.value)} /><br />
-
-                    <label htmlFor='emailid'>HallNo</label>
-                    <input type='number' placeholder='Enter the HallNO' id="emailid" value={hallno}
-                        onChange={(e) => setHallNo(e.target.value)} /><br />
-
-                    <button type='submit' onSubmit={handleClose}>Submit</button>
-                </form>
-            </div>
-        </div>
-        )}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default AddHall
+export default AddHall;
+
+

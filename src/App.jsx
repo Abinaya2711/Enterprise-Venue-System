@@ -10,6 +10,7 @@ import ForgotPassword from './ForgotPassword';
 import NewPassword from './NewPassword';
 import CalendarApp from './calendarApp'; 
 import Content from './Content';
+import CalendarPage from './calendarPage';
 
 
 function App() {
@@ -24,7 +25,9 @@ function App() {
       <Route path="/newpassword/:token" element={<NewPassword />} />
       <Route path="/forgotpassword" element={<ForgotPassword />} />
       <Route path='/content' element={<Content/>}/>
-      <Route path="/:hallId" element={<CalendarApp />} />
+      {/* Calendar routes inside main App */}
+      <Route path="/calendar" element={<CalendarPage />} />
+      <Route path="/calendar/:hallId" element={<CalendarPage />} /> {/* Use CalendarPage here */}
     </Routes>
   );
 }

@@ -1,4 +1,4 @@
-/* Reset margin, padding, and box-sizing */
+/* ======= Reset Styles ======= */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,61 +6,38 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Flexbox layout for the search form */
+/* ======= Search Form ======= */
 .searchForm {
-
     display: flex;
     justify-content: center;
-    margin: 20px 500px;
+    margin: 20px 0;
 }
 
-/* Style the input */
-.iptype {
+.searchForm input {
     padding: 10px;
-    width: 250px;                 /* Width of the input */
+    width: 250px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 1rem;
 }
 
-/* Style the add button */
-.addbtn {
+.searchForm button {
     padding: 10px 15px;
+    margin-left: 10px;
     background-color: #28a745;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 1.2rem;
     transition: background 0.3s ease-in-out;
-    width: 10%;  /* Adjust width to match the container */
-    max-width: 200px; /* Limit width for better alignment */
-    display: block;
-    margin: 0 auto;
-    text-align: center;
 }
 
-/* Button hover effect */
-.addbtn:hover {
+.searchForm button:hover {
     background-color: #218838;
 }
 
-/* Responsive adjustments */
-@media (max-width: 500px) {
-    .searchForm {
-        flex-direction: row;         /* Ensures they stay in a row even on small screens */
-        gap: 5px;                    /* Adjust gap for small screens */
-    }
-
-    .iptype {
-        width: 200px;                /* Adjust input width for small screens */
-    }
-
-    .addbtn {
-        padding: 10px;               /* Reduce button size for smaller screens */
-    }
-}
-
+/* ======= Modal Overlay ======= */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -74,6 +51,7 @@
     z-index: 1000;
 }
 
+/* ======= Modal Box ======= */
 .modal-content {
     background: white;
     padding: 25px;
@@ -85,28 +63,23 @@
     animation: fadeIn 0.3s ease-in-out;
 }
 
+/* ======= Close Button (X) ======= */
 .close-btn {
     position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 25px;
-    height: 25px;
-    background-color: red;
-    color: white;
+    top: 10px;
+    right: 15px;
     border: none;
-    border-radius: 50%;
-    font-size: 1rem;
-    font-weight: bold;
+    background: none;
+    font-size: 1.5rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: red;
 }
 
 .close-btn:hover {
-    background-color: darkred;
+    color: white;
 }
 
+/* ======= Form Input Styles ======= */
 .peopleaddform label {
     display: block;
     margin-top: 10px;
@@ -124,11 +97,12 @@
     font-size: 1rem;
 }
 
-.subbtn {
+/* ======= Submit Button ======= */
+.peopleaddform button {
     width: 100%;
     padding: 12px;
     margin-top: 15px;
-    background-color: #007bff;
+    background-color: green;
     color: white;
     border: none;
     border-radius: 5px;
@@ -137,11 +111,11 @@
     transition: background 0.3s ease-in-out;
 }
 
-.subbtn:hover {
-    background-color: #0056b3;
+.peopleaddform button:hover {
+    background-color: rgb(11, 156, 11);
 }
 
-/* Modal animation */
+/* ======= Fade In Animation ======= */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -153,10 +127,73 @@
     }
 }
 
-/* Additional media query for modal content */
+/* ======= Responsive Design ======= */
 @media (max-width: 500px) {
     .modal-content {
         width: 90%;
     }
+
+    .searchForm input {
+        width: 200px;
+    }
 }
 
+
+
+.search-add-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px auto;
+}
+
+/* Plus Button */
+.add-btn {
+    padding: 10px 18px;
+    background-color: #28a745;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.add-btn:hover {
+    background-color: #1e7e34;
+}
+.searchForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+    gap: 10px;
+  }
+  
+  .searchForm input {
+    padding: 15px;
+    width: 400px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .searchForm button {
+    padding: 10px 18px;
+    font-size: 1.5rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .searchForm button:hover {
+    background-color: #1e7e34;
+  }
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  

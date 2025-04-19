@@ -15,7 +15,6 @@ const formatDateToLocal = (dateString) => {
 };
 
 const HomePage = () => {
-
   const [customer, setBookings] = useState([]);
   const [searchDate, setSearchDate] = useState('');
 
@@ -114,9 +113,9 @@ const HomePage = () => {
           <button onClick={exportToExcel} className="export-btn" id='downloadExcelBtn'>Download Excel</button>
         </div>
       </main>
-
     </div>
   );
 };
 
 export default HomePage;
+
