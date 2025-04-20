@@ -17,7 +17,7 @@ const AddPeople = ({search,setSearch,handleSubmit,newItem,setNewItem,email,setEm
                 <input
                     type='text'
                     autoFocus
-                    placeholder='searchItem'
+                    placeholder='Search Item'
                     id='search'
                     role='searchbox'
                     value={search}
