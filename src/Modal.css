@@ -123,7 +123,7 @@ padding: 10px 15px;
 font-size: 14px;
 cursor: pointer;
 border: none;
-background: green;
+background: rgb(93, 91, 91);
 color: white;
 border-radius: 6px;
 transition: 0.3s;
@@ -134,7 +134,7 @@ background: green;
 }
 
 .period-btn.booked {
-background: #ccc;
+background:red;
 cursor: not-allowed;
 }
 
@@ -195,7 +195,7 @@ margin-top: 3px;
 }
 
 .book-btn {
-background: #28a745;
+background: #207e36;
 color: white;
 border: none;
 padding: 12px;
@@ -206,7 +206,7 @@ transition: 0.3s;
 }
 
 .book-btn:hover {
-background: #218838;
+background: #21983a;
 }
 
 .fully-booked-message {

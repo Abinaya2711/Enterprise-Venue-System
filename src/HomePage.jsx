@@ -5,17 +5,7 @@ import './HomePage.css';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 
-// Utility to format date to YYYY-MM-DD for filtering
-const formatDateToLocal = (dateString) => {
-  const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = (`0${date.getMonth() + 1}`).slice(-2);
-  const day = (`0${date.getDate()}`).slice(-2);
-  return `${year}-${month}-${day}`;
-};
-
 const HomePage = () => {
-
   const [customer, setBookings] = useState([]);
   const [searchDate, setSearchDate] = useState('');
 
@@ -32,13 +22,44 @@ const HomePage = () => {
     }
   };
 
-  const exportToExcel = () => {
-    const filteredData = customer.filter((booking) =>
-      searchDate === '' || formatDateToLocal(booking.event_date) === searchDate
+  const isSameDate = (date1, date2) => {
+    const d1 = new Date(date1);
+    const d2 = new Date(date2);
+    return (
+      d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth() &&
+      d1.getDate() === d2.getDate()
+    );
+  };
+
+  const isSameMonth = (date1, date2) => {
+    const d1 = new Date(date1);
+    const d2 = new Date(date2);
+    return (
+      d1.getFullYear() === d2.getFullYear() &&
+      d1.getMonth() === d2.getMonth()
+    );
+  };
+
+  const getFilteredCustomers = () => {
+    if (!searchDate) return customer;
+
+    const exactMatches = customer.filter((booking) =>
+      isSameDate(booking.event_date, searchDate)
     );
 
+    if (exactMatches.length > 0) return exactMatches;
+
+    return customer.filter((booking) =>
+      isSameMonth(booking.event_date, searchDate)
+    );
+  };
+
+  const filteredCustomers = getFilteredCustomers();
+
+  const exportToExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(
-      filteredData.map(({ name, phone, event_date }) => ({
+      filteredCustomers.map(({ name, phone, event_date }) => ({
         Name: name,
         Phone: phone,
         Event_Date: new Date(event_date).toLocaleDateString(),
@@ -52,10 +73,6 @@ const HomePage = () => {
     const fileData = new Blob([excelBuffer], { type: "application/octet-stream" });
     saveAs(fileData, "CustomerDetails.xlsx");
   };
-
-  const filteredCustomers = customer.filter((booking) =>
-    searchDate === '' || formatDateToLocal(booking.event_date) === searchDate
-  );
 
   return (
     <div className='body'>
@@ -114,7 +131,6 @@ const HomePage = () => {
           <button onClick={exportToExcel} className="export-btn" id='downloadExcelBtn'>Download Excel</button>
         </div>
       </main>
-
     </div>
   );
 };

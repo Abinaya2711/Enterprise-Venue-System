@@ -27,7 +27,7 @@ const Login = () => {
               setLoginMessage("Successfully logged in!");
               setTimeout(() => {
                   setLoginMessage('');
-                  navigate('/seminar-hall');
+                  navigate('/calendar/1');
               }, 1000);
           }
           else{

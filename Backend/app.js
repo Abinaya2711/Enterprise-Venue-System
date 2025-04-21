@@ -1,3 +1,4 @@
+
 const express=require('express')
 const app=express()
 const mysql=require('mysql2')
@@ -23,6 +24,37 @@ db.connect(err => {
   console.log('MySQL Connected...');
 });
 
+// GET all halls
+app.get('/api/halls', (req, res) => {
+    db.query('SELECT * FROM hall', (err, results) => {
+      if (err) return res.status(500).json({ error: err });
+      res.json(results);
+    });
+  });
+  
+  // POST a hall
+  app.post('/api/halls', (req, res) => {
+    const { item } = req.body;
+    const sql = 'INSERT INTO hall (item) VALUES (?)';
+    db.query(sql, [item], (err) => {
+      if (err) {
+        if (err.code === 'ER_DUP_ENTRY') {
+          return res.status(400).json({ message: 'Hall already exists' });
+        }
+        return res.status(500).json({ error: err });
+      }
+      res.status(201).json({ message: 'Hall added successfully' });
+    });
+  });
+  
+  // DELETE a hall
+  app.delete('/api/halls/:item', (req, res) => {
+    const { item } = req.params;
+    db.query('DELETE FROM hall WHERE item = ?', [item], (err) => {
+      if (err) return res.status(500).json({ error: err });
+      res.json({ message: 'Hall deleted successfully' });
+    });
+  });
 // Fetch bookings
 app.get('/api/customer', (req, res) => {
   const sql = 'SELECT * FROM customer ORDER BY event_date ASC';

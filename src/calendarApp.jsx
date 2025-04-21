@@ -1,22 +1,39 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
-import CalendarPage from "./calendarPage";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 import "./App.css";
 
 const CalendarApp = () => {
-  const { id } = useParams(); // gets 'id' from the URL, e.g., /calendar/123
+  const [halls, setHalls] = useState([]); // State to hold hall data
+
+  useEffect(() => {
+    // Fetch hall data from the backend
+    axios
+      .get("http://localhost:3500/api/halls")
+      .then((res) => {
+        console.log(res.data); // Log response data to ensure correct structure
+        setHalls(res.data); // Update halls state with response data
+      })
+      .catch((err) => console.error(err));
+  }, []); // Empty dependency array to run only once on mount
 
   return (
     <div className="app-container">
+      {/* Dynamic navigation for halls fetched from API */}
       <nav className="nav-bar">
-        <Link to="/seminar-hall" className="nav-link">Seminar Hall</Link>
-        <Link to="/smart-room" className="nav-link">Smart Room</Link>
-        <Link to="/hall-01" className="nav-link">Hall 01</Link>
+        {halls.map((hall) => (
+          <Link
+            key={hall.hallId} // Use hallId for a unique key
+            to={`/calendar/${hall.hallId}`} // Link using hallId
+            className="nav-link"
+          >
+            {hall.item} {/* Display hall name */}
+          </Link>
+        ))}
       </nav>
-
-      <CalendarPage hallId={id} />
     </div>
   );
 };
 
 export default CalendarApp;
+
