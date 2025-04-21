@@ -16,7 +16,7 @@ const Login = () => {
           return;
         }
       try{
-          const response= await fetch("http://localhost:3500/login",{
+          const response= await fetch("http://localhost:3500/login1",{
               method:'POST',
               headers:{
                   'Content-Type':'application/json'

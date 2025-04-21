@@ -58,6 +58,9 @@ const handleSubmit=async(e)=>{
     if(result.ok){
       console.log("added succesfully")
       setShow(false)
+      const updatedResponse = await fetch("http://localhost:3500/data");
+      const updatedData = await updatedResponse.json();
+      setItems(updatedData.data);
     }
     else{
       console.log("Error adding:", data?.message || "Unknown error");
