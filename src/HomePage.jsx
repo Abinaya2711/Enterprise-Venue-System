@@ -70,10 +70,11 @@ const HomePage = () => {
 
   const exportToExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(
-      filteredCustomers.map(({ name, phone, event_date }) => ({
+      filteredCustomers.map(({ name, phone, event_date,item }) => ({
         Name: name,
         Phone: phone,
         Event_Date: new Date(event_date).toLocaleDateString(),
+        Hall_Name:item,
       }))
     );
 
