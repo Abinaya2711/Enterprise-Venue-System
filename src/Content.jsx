@@ -10,6 +10,7 @@ const Content = () => {
   const [password,setPassword]=useState('')
   const [items,setItems]=useState([])
   const [show,setShow]=useState(false)
+  const [search,setSearch]=useState('')
   const handleForm=()=>{
     setShow(true)
   }
@@ -90,6 +91,12 @@ const handleDelete=async(id)=>{
     console.log("there is an error in the delete",err)
   }
 }
+const filteredItems = items.filter(item =>
+  item.name.toLowerCase().includes(search.toLowerCase())||
+  item.role.toLowerCase().includes(search.toLowerCase())||
+  item.email.toLowerCase().includes(search.toLowerCase())
+);
+
     
   return (
     <div>
@@ -99,18 +106,20 @@ const handleDelete=async(id)=>{
                     autoFocus
                     placeholder='searchItem'
                     id='search'
+                    value={search}
                     role='searchbox'
                     className='iptype'
+                    onChange={(e) => setSearch(e.target.value)}
                 />
                 <button  className='addbtn' onClick={handleForm} type='button'>
                     +
                 </button>
         </form>
       <div className='main'>
-      {(items.length)?(
+      {(filteredItems.length)?(
             <ul>
                 
-                {items.map((item) => (
+              {filteredItems.map((item) => (
               <li className='item' key={item.id}>
                 <label>{item.name}</label>
                 <label>{item.email}</label>

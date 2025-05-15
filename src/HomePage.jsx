@@ -10,17 +10,28 @@ const HomePage = () => {
   const [searchDate, setSearchDate] = useState('');
 
   useEffect(() => {
-    fetchBookings();
+    const fetchBooking=async()=>{
+      try{
+        const response=await fetch("http://localhost:3500/bookings",{
+          method:"GET"
+        })
+        if(response.ok){
+          const result = await response.json();
+          setBookings(result.data);
+          console.log("Data fetched:", result.data);
+        }
+          
+        else{
+          console.log("error for fetching")
+        }
+      }catch(error){
+        console.log("error for fetching the data",error)
+      }
+    }
+    fetchBooking()
   }, []);
 
-  const fetchBookings = async () => {
-    try {
-      const response = await axios.get('http://localhost:3500/api/customer');
-      setBookings(response.data);
-    } catch (error) {
-      console.error("Error fetching bookings:", error);
-    }
-  };
+  
 
   const isSameDate = (date1, date2) => {
     const d1 = new Date(date1);
@@ -105,27 +116,30 @@ const HomePage = () => {
             style={{ marginLeft: '10px', marginBottom: '20px' }}
           />
 
-          {filteredCustomers.length === 0 ? (
-            <p>No bookings found.</p>
-          ) : (
+          {(filteredCustomers.length)? 
+             (
             <table className="booking-table">
               <thead>
                 <tr>
                   <th>Name</th>
                   <th>Phone</th>
                   <th>Event Date</th>
+                  <th>Hall Name</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredCustomers.map((booking, index) => (
-                  <tr key={index}>
+                {filteredCustomers.map((booking) => (
+                  <tr key={booking.id}>
                     <td>{booking.name}</td>
                     <td>{booking.phone}</td>
                     <td>{new Date(booking.event_date).toLocaleDateString()}</td>
+                    <td>{booking.item}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          ):(
+          <p>No bookings found.</p>
           )}
 
           <button onClick={exportToExcel} className="export-btn" id='downloadExcelBtn'>Download Excel</button>

@@ -1,4 +1,3 @@
-
 const express=require('express')
 const app=express()
 const mysql=require('mysql2')
@@ -13,14 +12,11 @@ app.use(cors())
 app.use(express.json())
 app.use(bodyparser.json())
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the backend server!');
-});
 
 const db=mysql.createConnection({
     host:'localhost',
     user:'root',
-     password:'Alaguanushiya@15',
+     password:'Kapil@1362005',
      database:'halldb'
 })
 db.connect(err => {
@@ -29,9 +25,14 @@ db.connect(err => {
 });
 
 app.get('/bookings', (req, res) => {
-  db.query('SELECT * FROM customer', (err, results) => {
-    if (err) throw err;
-    res.json(results);  // Sends the bookings in JSON format
+  db.query('SELECT customer.id,customer.name,customer.phone,hall.item,customer.event_date,customer.hallId FROM customer JOIN hall ON customer.hallId=hall.hallId', (err, results) => {
+    if (err) {
+      return res.status(500).json({ message: "Database error", error: err });
+    }
+    res.status(200).json({ 
+      message: "fetched data",
+      data:results
+    });   
   });
 });
 
@@ -41,7 +42,7 @@ app.post('/book-date', (req, res) => {
   console.log('Received POST request to /book-date:', req.body);
   const { name, phone, event_date, hallId } = req.body;
 
-  const onlyDate = event_date; // Already formatted correctly (YYYY-MM-DD)
+  const onlyDate = event_date;
 
   const sql = 'INSERT INTO customer (name, phone, event_date, hallId) VALUES (?, ?, ?, ?)';
 
@@ -58,14 +59,13 @@ app.post('/book-date', (req, res) => {
 });
 
 
-// GET all halls
+
 app.get('/api/halls', (req, res) => {
     db.query('SELECT * FROM hall', (err, results) => {
       if (err) return res.status(500).json({ error: err });
       res.json(results);
     });
   });
-  // POST a hall (inserts into missing hallId if any)
 app.post('/api/halls', (req, res) => {
   const { item } = req.body;
 
@@ -102,7 +102,7 @@ app.post('/api/halls', (req, res) => {
 
   app.get('/api/halls/:id', (req, res) => {
     const hallId = req.params.id;
-    const sql = 'SELECT * FROM hall WHERE hallId = ?'; // ✅ correct column name
+    const sql = 'SELECT * FROM hall WHERE hallId = ?';
   
     db.query(sql, [hallId], (err, result) => {
       if (err) {
@@ -118,17 +118,17 @@ app.post('/api/halls', (req, res) => {
     });
   });
   
-  // DELETE a hall and manually delete associated bookings
+  
 app.delete('/api/halls/:item', (req, res) => {
   const { item } = req.params;
 
-  // First, delete bookings associated with the hall
+  
   db.query('DELETE FROM customer WHERE hallId = (SELECT hallId FROM hall WHERE item = ?)', [item], (err) => {
     if (err) {
       return res.status(500).json({ error: 'Failed to delete bookings' });
     }
 
-    // Then, delete the hall itself
+   
     db.query('DELETE FROM hall WHERE item = ?', [item], (err2) => {
       if (err2) return res.status(500).json({ error: 'Failed to delete hall' });
       res.json({ message: 'Hall and associated bookings deleted successfully' });
@@ -136,7 +136,7 @@ app.delete('/api/halls/:item', (req, res) => {
   });
 });
 
-// Fetch bookings
+
 app.get('/api/customer', (req, res) => {
   const { hallId } = req.query;
   const sql = 'SELECT * FROM customer WHERE hallId = ? ORDER BY event_date ASC';
