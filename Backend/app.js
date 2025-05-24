@@ -16,7 +16,7 @@ app.use(bodyparser.json())
 const db=mysql.createConnection({
     host:'localhost',
     user:'root',
-     password:'Kapil@1362005',
+     password:'Abinaya_2711',
      database:'halldb'
 })
 db.connect(err => {
